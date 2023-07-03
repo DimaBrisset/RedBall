@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement: MonoBehaviour
+public class Character : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
 
@@ -13,13 +13,13 @@ public class PlayerMovement: MonoBehaviour
     private float HorizontalInput;
 
     private bool Jumping;
-  
+    // Start is called before the first frame update
     void Start()
     {
-        Jump();
+        
     }
 
- 
+    // Update is called once per frame
     void Update()
     {
         HorizontalInput = Input.GetAxis("Horizontal");
@@ -33,9 +33,7 @@ public class PlayerMovement: MonoBehaviour
     public void Jump()
     {
         rb.AddForce(Vector2.up*JumpSpeed);
-        Debug.Log("NAZ");
         Jumping = true;
-        Debug.Log("NAZw");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
